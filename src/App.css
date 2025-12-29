@@ -1,0 +1,27 @@
+.css-1usuzwp-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: white !important;
+}
+
+.css-1qltlow-MuiTabs-indicator {
+    background-color: #FFFFFF !important;
+}
+
+.inventory-button {
+    text-align: center;
+}
+
+.label-name {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    padding-bottom: 8px;
+}
+
+.qr-form-body {
+    margin: 20px;
+}
+
+.color-picker {
+    height: 25px;
+    width: 25px;
+    outline: 2px dotted black;
+    padding: 2px;
+}
