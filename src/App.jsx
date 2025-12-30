@@ -31,7 +31,7 @@ export default function Qrcode() {
     },
     image: "",
     imageOptions: {
-      hideBackgroundDots: true,
+      hideBackgroundDots: false,
       margin: 0,
     },
     cornersSquareOptions: {
@@ -154,6 +154,29 @@ export default function Qrcode() {
             ></TextField>
           </Grid>
           <Grid>
+            <InputLabel>Hide Background Dots - Image</InputLabel>
+            <Switch
+              checked = {qrFormData.imageOptions.hideBackgroundDots}
+              onChange={(event) => {
+                setQrFormData({
+                  ...qrFormData,
+                  imageOptions: {
+                    ...qrFormData.imageOptions,
+                    hideBackgroundDots: event.target.checked,
+                  },
+                });
+              }}
+            ></Switch>
+          </Grid>
+          <Grid>
+            <InputLabel>Color</InputLabel>
+            {colorPickerDialog(qrFormData.dotsOptions, (event) => {
+              setQrFormData({ ...qrFormData, dotsOptions: { ...event } });
+            })}
+          </Grid>
+        </Grid>
+        <Grid size={{ xs: 12, md: 4 }} alignSelf={"start"}>
+          <Grid>
             <FormControl fullWidth={true}>
               <FormLabel>Shape</FormLabel>
               <Select
@@ -170,14 +193,6 @@ export default function Qrcode() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid>
-            <InputLabel>Color</InputLabel>
-            {colorPickerDialog(qrFormData.dotsOptions, (event) => {
-              setQrFormData({ ...qrFormData, dotsOptions: { ...event } });
-            })}
-          </Grid>
-        </Grid>
-        <Grid size={{ xs: 12, md: 4 }} alignSelf={"start"}>
           <Grid>
             <FormControl fullWidth={true}>
               <FormLabel>Dot Type</FormLabel>
@@ -201,21 +216,6 @@ export default function Qrcode() {
                 <MenuItem value="extra-rounded">Extra Rounded</MenuItem>
               </Select>
             </FormControl>
-          </Grid>
-          <Grid>
-            <InputLabel>Hide Background Dots</InputLabel>
-            <Switch
-              defaultChecked
-              onChange={(event) => {
-                setQrFormData({
-                  ...qrFormData,
-                  imageOptions: {
-                    ...qrFormData.imageOptions,
-                    hideBackgroundDots: event.target.checked,
-                  },
-                });
-              }}
-            ></Switch>
           </Grid>
           <Grid>
             <InputLabel>Background Color</InputLabel>

@@ -84,7 +84,7 @@ export default function ColorPickerDialog(template, setQrFormData) {
         onClose={() => setdialogBox(false)}
         slotProps={{
           paper: {
-            sx: { height: 500, width: 600, alignItems: "center", padding: 2 },
+            sx: { height: 500, width: 505, alignItems: "center", padding: 2 },
           },
         }}
       >
