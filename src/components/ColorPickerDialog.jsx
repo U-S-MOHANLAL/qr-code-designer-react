@@ -18,7 +18,7 @@ export default function ColorPickerDialog(template, setQrFormData) {
   const [color, setColor] = useState({
     colorType: "solid",
     gradientType: "linear",
-    color: ["red", "blue"],
+    color: ["#ff0000", "#0029ff"],
     rotation: 0,
   });
   const updateOptionPayload = () => {
@@ -61,24 +61,30 @@ export default function ColorPickerDialog(template, setQrFormData) {
         template?.gradient?.colorStops[1].color
       })`;
     }
-    console.log(color);
     return color;
   }, [template]);
   return (
     <div>
-      <div className="color-picker" onClick={() => setdialogBox(true)}>
-        <ColorLensIcon
-          style={{
-            background: conatinerColor,
-          }}
-        />
-      </div>
+      <Grid container>
+        <Grid size={{ xs: 2, sm: 1 }}>
+          <ColorLensIcon className="color-picker-icon" />
+        </Grid>
+        <Grid size={{ xs: 10, sm: 11 }}>
+          <div
+            className="color-picker"
+            style={{
+              background: conatinerColor,
+            }}
+            onClick={() => setdialogBox(true)}
+          ></div>
+        </Grid>
+      </Grid>
       <Dialog
         open={dialogBox}
         onClose={() => setdialogBox(false)}
         slotProps={{
           paper: {
-            sx: { height: 600, width: 600, alignItems: "center", padding: 2 },
+            sx: { height: 500, width: 600, alignItems: "center", padding: 2 },
           },
         }}
       >
@@ -87,9 +93,10 @@ export default function ColorPickerDialog(template, setQrFormData) {
           rowSpacing={2}
           columnSpacing={2}
           style={{ padding: "20px" }}
+          alignContent="center"
         >
-          <Grid>
-            <FormControl fullWidth>
+          <Grid size={4}>
+            <FormControl>
               <FormLabel>Color Type</FormLabel>
               <Select
                 value={color.colorType}
@@ -103,8 +110,8 @@ export default function ColorPickerDialog(template, setQrFormData) {
             </FormControl>
           </Grid>
           {color.colorType === "gradient" && (
-            <Grid>
-              <FormControl fullWidth>
+            <Grid size={4}>
+              <FormControl>
                 <FormLabel>Gradient Type</FormLabel>
                 <Select
                   value={color.gradientType}
@@ -120,7 +127,7 @@ export default function ColorPickerDialog(template, setQrFormData) {
           )}
           {color.gradientType === "linear" &&
             color.colorType === "gradient" && (
-              <Grid>
+              <Grid size={4}>
                 <InputLabel>Rotation</InputLabel>
                 <TextField
                   value={color.rotation}
@@ -179,9 +186,28 @@ export default function ColorPickerDialog(template, setQrFormData) {
             </Grid>
           )}
         </Grid>
-        <Button variant="contained" onClick={updateOptionPayload}>
-          Save
-        </Button>
+        <Grid container justifyContent="center" spacing={2}>
+          <Grid>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                setdialogBox(false);
+              }}
+            >
+              Cancel
+            </Button>
+          </Grid>
+          <Grid>
+            <Button
+              variant="contained"
+              onClick={() => {
+                updateOptionPayload();
+              }}
+            >
+              Apply
+            </Button>
+          </Grid>
+        </Grid>
       </Dialog>
     </div>
   );
