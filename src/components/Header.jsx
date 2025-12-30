@@ -6,7 +6,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 export default function Header() {
   const buttonParameters = [
     {
-      name: "Git",
+      name: "GitHub",
       url: "https://github.com/U-S-MOHANLAL",
       icon: <GitHubIcon style={{ marginRight: "8px" }} />,
     },
