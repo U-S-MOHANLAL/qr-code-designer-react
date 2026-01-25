@@ -1,6 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <Grid alignSelf="end" className="footer">
       <Typography
@@ -15,7 +16,7 @@ export default function Footer() {
           window.open("https://github.com/U-S-MOHANLAL/qr-code-designer-react");
         }}
       >
-        © 2025 Mohanlal S
+        © {currentYear} Mohanlal S
       </Typography>
     </Grid>
   );

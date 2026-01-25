@@ -18,8 +18,11 @@ export default function Header() {
   ];
   return (
     <div className="navbar">
-      <Grid container alignItems="right" justifyContent="right">
-        <Grid>{RedirectionButton(buttonParameters)}</Grid>
+      <Grid container>
+        <Grid size={{ lg: 6 , xs: 3}}>
+          <p className="title">QR Code Designer</p>
+        </Grid>
+        <Grid size={{ lg: 6 , xs: 9}} textAlign="right">{RedirectionButton(buttonParameters)}</Grid>
       </Grid>
     </div>
   );

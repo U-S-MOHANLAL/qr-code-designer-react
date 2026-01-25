@@ -3,6 +3,7 @@
     width: 100%;
     background-color: black;
     margin-bottom: 10px;
+    font-family: "Helvetica";
 }
 
 .footer {
@@ -57,4 +58,20 @@ body, #root {
     padding: 2px;
     margin-bottom: 14px;
     margin-top: 14px;
+}
+
+.title {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+@media (max-width: 720px) {
+   .title {
+    color: rgb(255, 255, 255);
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin: 9px;
+} 
 }
