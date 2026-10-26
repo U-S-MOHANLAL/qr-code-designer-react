@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import RedirectionButton from "./redirectionButton";
+import RedirectionButton from "./RedirectionButton";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
